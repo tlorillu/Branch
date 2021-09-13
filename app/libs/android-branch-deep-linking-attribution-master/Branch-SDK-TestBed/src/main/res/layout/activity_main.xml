@@ -1,0 +1,166 @@
+<RelativeLayout android:id="@+id/container"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/editReferralShortUrl"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:hint="short referral url"
+                android:textSize="14sp"
+                android:maxLines="3"
+                android:ellipsize="end"/>
+
+            <Button
+                android:id="@+id/cmdRefreshShortURL"
+                style="@style/testbed_button_style"
+                android:layout_width="180dp"
+                android:layout_below="@+id/editReferralShortUrl"
+                android:layout_centerHorizontal="true"
+                android:text="Refresh Short URL"/>
+
+            <TextView
+                android:id="@+id/txtRewardBalance"
+                style="@style/testbed_text_view"
+                android:layout_below="@+id/cmdRefreshShortURL"
+                android:layout_marginTop="5dp"
+                android:text="credits = "
+                android:layout_alignParentRight="true"/>
+
+            <TextView
+                android:id="@+id/txtInstallCount"
+                style="@style/testbed_text_view"
+                android:layout_below="@+id/cmdRefreshShortURL"
+                android:text="install count = "/>
+
+
+            <Button
+                android:id="@+id/cmdIdentifyUser"
+                style="@style/testbed_button_style"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/txtInstallCount"
+                android:text="Identify User"/>
+
+            <Button
+                android:id="@+id/cmdRedeemFive"
+                style="@style/testbed_button_style"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/txtInstallCount"
+                android:text="Redeem 5"/>
+
+            <Button
+                android:id="@+id/cmdClearUser"
+                style="@style/testbed_button_style"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/cmdIdentifyUser"
+                android:text="Clear User"/>
+
+            <Button
+                android:id="@+id/cmdRefreshReward"
+                style="@style/testbed_button_style"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/cmdRedeemFive"
+                android:text="Refresh Rewards"/>
+
+
+            <Button
+                android:id="@+id/cmdCommitBuyAction"
+                style="@style/testbed_button_style"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/cmdRefreshReward"
+                android:text="Execute Buy"/>
+
+            <Button
+                android:id="@+id/cmdCommitBuyMetadataAction"
+                style="@style/testbed_button_style"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/cmdRefreshReward"
+                android:text="Buy with metadata"/>
+
+            <Button
+                android:id="@+id/cmdGetCreditHistory"
+                style="@style/testbed_button_style"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/cmdCommitBuyAction"
+                android:text="Get Credit History"/>
+
+
+            <Button
+                android:id="@+id/cmdPrintInstallParam"
+                style="@style/testbed_button_style"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/cmdCommitBuyMetadataAction"
+                android:text="Print Install Param"/>
+
+            <Button
+                android:id="@+id/cmdTrackCustomEvent"
+                style="@style/testbed_button_style"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/cmdGetCreditHistory"
+                android:text="Track Custom Evt"/>
+
+            <Button
+                android:id="@+id/cmdTrackStandardEvent"
+                style="@style/testbed_button_style"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/cmdPrintInstallParam"
+                android:text="Track Standard Evt"/>
+
+
+            <Button
+                android:id="@+id/report_view_btn"
+                style="@style/testbed_button_style"
+                android:layout_below="@+id/cmdTrackStandardEvent"
+                android:layout_alignParentLeft="true"
+                android:text="Report View"/>
+
+            <ToggleButton
+                android:id="@+id/tracking_cntrl_btn"
+                style="@style/testbed_button_style"
+                android:layout_below="@+id/cmdTrackStandardEvent"
+                android:layout_alignParentRight="true"
+                android:textOn="Tracking Disabled"
+                android:textOff="Tracking Enabled"/>
+
+            <Button
+                android:id="@+id/share_btn"
+                style="@style/testbed_button_style"
+                android:layout_below="@+id/report_view_btn"
+                android:layout_centerHorizontal="true"
+                android:text="Share Link"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:id="@+id/notif_btn"
+                style="@style/testbed_button_style"
+                android:layout_below="@+id/share_btn"
+                android:layout_centerHorizontal="true"
+                android:text="Fire notif"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:id="@+id/settings_btn"
+                style="@style/testbed_button_style"
+                android:layout_below="@+id/notif_btn"
+                android:layout_centerHorizontal="true"
+                android:text="@string/settings"
+                android:layout_marginTop="20dp"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>
+

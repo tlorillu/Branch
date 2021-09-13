@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name" translatable="false">Branch</string>
+    <string name="button_send" translatable="false">SHARE</string>
+    <string name="deep_link_text" translatable="false">Deep Link Screen</string>
+</resources>
