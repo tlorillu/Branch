@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+
+import org.json.JSONException;
 import org.json.JSONObject;
 
 
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         // first
         JSONObject installParams = Branch.getInstance().getFirstReferringParams();
 
-        //IntegrationValidator.validate(MainActivity.this);
+        IntegrationValidator.validate(MainActivity.this);
     }
     @Override
     protected void onNewIntent(Intent intent) {
@@ -51,14 +53,26 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onInitFinished(JSONObject linkProperties, BranchError error) {
             // do stuff with deep link data (nav to page, display content, etc)
+
             if (error == null) {
-                //find a custom key called "deep_link_test" in
-                //the linkProperties parameter, and if it contains an "other" value, immediately
-                //open the otherActivity
+                // log data
+                Log.i("BRANCH SDK", linkProperties.toString());
+
+                // test deep link
+                /* try {
+                    linkProperties.put("deep_link_test","other");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } */
+
+                // find a custom key called "deep_link_test" in
+                // the linkProperties parameter, and if it contains an "other" value, immediately
+                // open the otherActivity
                 if (linkProperties.has("deep_link_test")) {
                     String deepLinkTest = linkProperties.optString("deep_link_test");
-                    if(deepLinkTest.toString() == "other"){
-                        //if key/value found, navigate to page
+                    if(deepLinkTest.equals("other")){
+
+                        // if key/value found, navigate to page
                         Intent intent = new Intent(MainActivity.this, OtherActivity.class);
                         startActivity(intent);
                     }
@@ -72,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
     /** Called when the user taps the SHARE button */
     public void createAndShareBranchLink(View view) {
-        //createContentReference
+        // createContentReference
         BranchUniversalObject buo = new BranchUniversalObject()
                 .setCanonicalIdentifier("content/12345")
                 .setTitle("Deep Link Test")
@@ -83,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                 .setContentMetadata(new ContentMetadata().addCustomMetadata("deep_link_test", "other"));
 
 
-        //createDeepLink
+        // createDeepLink
         LinkProperties lp = new LinkProperties()
                 .setChannel("facebook")
                 .setFeature("sharing")
@@ -101,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        //shareDeepLink
+        // shareDeepLink
         ShareSheetStyle ss = new ShareSheetStyle(MainActivity.this, "Check this out!", "This stuff is awesome: ")
                 .setCopyUrlStyle(ContextCompat.getDrawable(this, android.R.drawable.ic_menu_send), "Copy", "Added to clipboard")
                 .setMoreOptionStyle(ContextCompat.getDrawable(this, android.R.drawable.ic_menu_search), "Show more")
@@ -124,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
             }
             @Override
             public void onChannelSelected(String channelName) {
+                // log link properties context
                 Log.i("BRANCH SDK", lp.toString());
             }
         });
